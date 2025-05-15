@@ -45,9 +45,38 @@ body {
 .signup-form input[type="submit"]:hover {
   background-color: #3e8e41;
 }
+
+.menu-bar {
+  width: 200px;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.menu-bar a {
+  color: #fff;
+  text-decoration: none;
+  margin-bottom: 20px;
+}
+
+.menu-bar a:hover {
+  color: #ccc;
+}
 </style>
 </head>
 <body>
+<div class="menu-bar">
+  <a href="#">Home</a>
+  <a href="#">Contact</a>
+  <a href="#">About</a>
+</div>
+<div style="margin-left: 220px;">
 <div class="signup-form">
   <h2>lahore bakery signup</h2>
   <form>
@@ -58,14 +87,15 @@ body {
     <input type="submit" value="signup">
   </form>
 </div>
+</div>
 <script>
-const form = document.queryselector('form');
-form.addeventlistener('submit', (e) => {
-  e.preventdefault();
-  const name = document.queryselector('input[name="name"]').value;
-  const email = document.queryselector('input[name="email"]').value;
-  const password = document.queryselector('input[name="password"]').value;
-  const confirmpassword = document.queryselector('input[name="confirm_password"]').value;
+const form = document.querySelector('form');
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const name = document.querySelector('input[name="name"]').value;
+  const email = document.querySelector('input[name="email"]').value;
+  const password = document.querySelector('input[name="password"]').value;
+  const confirmpassword = document.querySelector('input[name="confirm_password"]').value;
   if (password !== confirmpassword) {
     alert('passwords do not match');
   } else {
